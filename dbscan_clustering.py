@@ -86,7 +86,7 @@ def dbscan(feature_):
 def pair_plot(r):
   sns.pairplot(r,hue='predict')
   plt.show()
-
+  plt.savefig('dbscan_result.pdf')
 
 # window size 만큼의의 데이터 추출
 dbscan_result = dbscan(dataset)
