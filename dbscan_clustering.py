@@ -11,22 +11,11 @@ import seaborn as sns
 
 import pandas as pd
 
-from google.colab import drive
-drive.mount('/content/drive')
-
-dataset = pd.read_csv("/content/drive/MyDrive/BigData/04_hashed.csv")
+dataset = pd.read_csv("./04_hashed.csv")
 
 dataset.columns
 dataset.head()
 
-# def select_unique_Rdate(dataset):
-#   time_list=[]
-#   for i in range(len(dataset['Rdate'])):
-#     time_list.append(dataset.iloc[i]['Rdate'])
-#   unique_time = set(time_list)
-#   unique_time = sorted(unique_time)
-#   print(len(unique_time)) # 24218
-#   return unique_time 
 start_time = 20210411000000
 get_days = 1000000
 
@@ -37,7 +26,6 @@ dataset = dataset[dataset['Rdate'] < 20210411000000 ]
 dataset.tail()
 
 dataset.loc[2861154]['Rdate']
-
 
 # feature = dataset[ ['src_ip', 'dst_ip', 'Proto', 'src_port', 'dst_port', 'Action',
 #        'src_country', 'dst_country'] ]
@@ -107,6 +95,6 @@ pair_plot(dbscan_result)
 
 anomaly_data = dbscan_result[dbscan_result['predict']==-1]
 
-anomaly_data.to_csv("/content/drive/MyDrive/dbscan_anomaly_data.csv")
+anomaly_data.to_csv("./dbscan_anomaly_data.csv")
 
 
